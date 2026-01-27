@@ -488,3 +488,10 @@ button:active {
 .hero p {
   opacity: 0.9;
 }
+
+.device-support {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
