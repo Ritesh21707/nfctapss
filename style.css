@@ -433,19 +433,6 @@ button:active {
    HERO PHONE IMAGE – ANIMATION
    =============================== */
 
-/* FLOATING ANIMATION */
-@keyframes heroFloat {
-  0% {
-    transform: translate(-50%, -50%) translateY(0);
-  }
-  50% {
-    transform: translate(-50%, -50%) translateY(-18px);
-  }
-  100% {
-    transform: translate(-50%, -50%) translateY(0);
-  }
-}
-
 /* Entry from bottom */
 @keyframes heroEnter {
   to {
@@ -600,6 +587,19 @@ section {
   z-index: 1;
   pointer-events: none;
   animation: heroFloat 6s ease-in-out infinite;
+}
+
+/* FLOATING ANIMATION */
+@keyframes heroFloat {
+  0% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-18px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
 }
 
 /* Initial hidden state */
