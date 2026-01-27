@@ -197,11 +197,30 @@ img {
   padding: 30px;
   border-radius: 18px;
   background: #f8f8f8;
-  transition: 0.3s;
+  position: relative;
+  cursor: pointer;
+
+  transition: 
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
+/* ✨ Hover glow */
 .pricing-card:hover {
   transform: translateY(-8px);
+  box-shadow:
+    0 0 0 2px #000,
+    0 0 25px rgba(0, 0, 0, 0.6),
+    0 0 60px rgba(0, 0, 0, 0.4);
+}
+
+/* 🖤 Click / active glow */
+.pricing-card:active {
+  transform: scale(0.98);
+  box-shadow:
+    0 0 0 3px #000,
+    0 0 35px rgba(0, 0, 0, 0.8),
+    0 0 90px rgba(0, 0, 0, 0.6);
 }
 
 /* ================= FOOTER ================= */
@@ -300,7 +319,7 @@ a.order-btn {
   padding: 14px 34px;
   border-radius: 999px;
 
-  color: #ffffff;
+  color: #170101;
   font-weight: 500;
   letter-spacing: 0.3px;
   text-decoration: none;
