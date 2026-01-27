@@ -433,6 +433,32 @@ button:active {
    HERO PHONE IMAGE – ANIMATION
    =============================== */
 
+.hero-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1000px;            /* BIG & premium */
+  max-width: none;
+  transform: translate(-50%, -50%);
+  opacity: 0.9;
+  z-index: 1;
+  pointer-events: none;
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+/* FLOATING ANIMATION */
+@keyframes heroFloat {
+  0% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-18px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+}
+
 /* Entry from bottom */
 @keyframes heroEnter {
   to {
@@ -573,141 +599,3 @@ section {
 .pricing-card:active {
   transform: scale(0.97);
 }
-
-/* ================= HERO ANIMATIONS ================= */
-
-.hero-bg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 1000px;            /* BIG & premium */
-  max-width: none;
-  transform: translate(-50%, -50%);
-  opacity: 0.9;
-  z-index: 1;
-  pointer-events: none;
-  animation: heroFloat 6s ease-in-out infinite;
-}
-
-/* FLOATING ANIMATION */
-@keyframes heroFloat {
-  0% {
-    transform: translate(-50%, -50%) translateY(0);
-  }
-  50% {
-    transform: translate(-50%, -50%) translateY(-18px);
-  }
-  100% {
-    transform: translate(-50%, -50%) translateY(0);
-  }
-}
-
-/* Initial hidden state */
-.hero-text h1,
-.hero-text p,
-.hero-cta {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.8s ease forwards;
-}
-
-/* Stagger effect */
-.hero-text h1 {
-  animation-delay: 0.2s;
-}
-
-.hero-text p {
-  animation-delay: 0.4s;
-}
-
-.hero-cta {
-  animation-delay: 0.6s;
-}
-
-/* Hero phone animation */
-.hero-bg {
-  opacity: 0;
-  transform: translateY(40px) scale(0.96);
-  animation: phoneFloat 1.2s ease forwards;
-  animation-delay: 0.5s;
-}
-
-/* Subtle floating effect after load */
-.hero-bg {
-  animation:
-    phoneFloat 1.2s ease forwards,
-    floatIdle 4s ease-in-out infinite;
-  animation-delay: 0.5s, 1.7s;
-}
-
-/* Keyframes */
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes phoneFloat {
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes floatIdle {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;   /* 🔥 centers vertically */
-  justify-content: space-between;
-  padding: 0 8%;
-  background: radial-gradient(
-    circle at top,
-    #111 0%,
-    #000 60%
-  );
-  overflow: hidden;
-}
-
-.hero-content {
-  max-width: 520px;
-}
-
-.hero h1 {
-  font-size: 48px;
-  color: #fff;
-}
-
-.hero p {
-  color: #bfbfbf;
-  margin: 18px 0 28px;
-  line-height: 1.6;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 16px;
-}
-
-/* PHONE */
-.hero-phone {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-phone img {
-  width: 320px;
-  max-width: 100%;
-  transform: translateY(0); /* ❌ remove any translateY before */
-}
-
