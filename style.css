@@ -1,4 +1,8 @@
 * {
+  transition: all 0.25s ease;
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -463,6 +467,17 @@ button:active {
   }
 }
 
+.hero-bg {
+  max-width: 520px;
+  animation: floatPhone 6s ease-in-out infinite;
+}
+
+@keyframes floatPhone {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
 /* Mobile fix */
 @media (max-width: 768px) {
   .hero-bg {
@@ -518,4 +533,69 @@ section {
 
 .testimonials-section {
   background: #f7f7f7;
+}
+
+.section,
+.hero-text {
+  animation: fadeUp 0.8s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.order-btn {
+  position: relative;
+  padding: 14px 36px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.7);
+  color: #000; /* TEXT BLACK */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,0,0,0.08);
+  font-weight: 600;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+/* Glow behind */
+.order-btn::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  background: linear-gradient(120deg, #9effff, #c6a6ff);
+  filter: blur(20px);
+  opacity: 0;
+  z-index: -1;
+}
+
+.order-btn:hover::before {
+  opacity: 1;
+}
+
+.order-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+.pricing-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+.order-btn:active,
+.pricing-card:active {
+  transform: scale(0.97);
 }
