@@ -8,6 +8,27 @@
 html { scroll-behavior: smooth; }
 body { background: #fff; color: #000; }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.pricing-card img {
+  width: 100%;
+  height: auto;
+}
+
+/* PRICING + PRODUCT CARD IMAGES FIX */
+.pricing-card img,
+.product-card img {
+  width: 100%;
+  max-width: 220px;     /* controls size */
+  height: auto;
+  object-fit: contain; /* prevents cropping */
+  margin: 0 auto 20px; /* center image */
+  display: block;
+}
+
 /* ================= NAVBAR ================= */
 .navbar {
   display: flex;
@@ -230,4 +251,131 @@ footer a {
   }
 }
 
+/* ===== GLOW BUTTON EFFECT ===== */
+.order-btn {
+  position: relative;
+  z-index: 1;
+  background: #000;
+  color: #fff;
+  border-radius: 999px;
+  padding: 14px 36px;
+  transition: transform 0.3s ease;
+}
+
+/* Glow layer */
+.order-btn::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  background: #3b82f6; /* 🔵 CHANGE COLOR HERE */
+  filter: blur(18px);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover glow */
+.order-btn:hover::before {
+  opacity: 0.7;
+}
+
+/* Slight lift */
+.order-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================
+   GLASSY GLOW BUTTON STYLE
+   ========================= */
+
+.order-btn,
+button,
+a.order-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 34px;
+  border-radius: 999px;
+
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  cursor: pointer;
+  overflow: hidden;
+
+  transition: 
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+/* GLOW LAYER */
+.order-btn::before,
+button::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+
+  background: radial-gradient(
+    circle at top,
+    rgba(0, 229, 255, 0.6),
+    transparent 60%
+  );
+
+  opacity: 0;
+  filter: blur(18px);
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+/* HOVER EFFECT */
+.order-btn:hover,
+button:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 30px rgba(0, 229, 255, 0.35),
+    inset 0 0 0 rgba(255, 255, 255, 0.2);
+}
+
+.order-btn:hover::before,
+button:hover::before {
+  opacity: 1;
+}
+
+/* CLICK FEEL */
+.order-btn:active,
+button:active {
+  transform: translateY(-1px);
+}
+
+/* PRIMARY BUTTON (STRONGER GLOW) */
+.order-btn.primary {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(0, 229, 255, 0.5);
+  box-shadow: 0 0 0 rgba(0, 229, 255, 0);
+}
+
+.order-btn.primary:hover {
+  box-shadow:
+    0 0 25px rgba(0, 229, 255, 0.6),
+    0 0 60px rgba(0, 229, 255, 0.35);
+}
+
+/* SECONDARY BUTTON (SUBTLE) */
+.order-btn.secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
 
