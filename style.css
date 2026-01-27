@@ -380,28 +380,30 @@ button:active {
 }
 
 .order-btn {
+  position: relative;
   display: inline-block;
   padding: 14px 36px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: #000; /* BLACK TEXT */
+  background: rgba(255, 255, 255, 0.75); /* glassy white */
+  color: #000; /* ✅ BLACK TEXT */
   font-weight: 600;
   text-decoration: none;
-  margin: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow:
-    0 0 15px rgba(0, 255, 255, 0.4),
-    0 0 30px rgba(0, 255, 255, 0.25);
+    0 0 25px rgba(0, 255, 255, 0.55),   /* glow */
+    inset 0 0 15px rgba(255, 255, 255, 0.4);
   transition: all 0.3s ease;
 }
 
+/* Hover polish */
 .order-btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.03);
   box-shadow:
-    0 0 25px rgba(0, 255, 255, 0.8),
-    0 0 50px rgba(0, 255, 255, 0.6);
+    0 0 35px rgba(0, 255, 255, 0.8),
+    inset 0 0 18px rgba(255, 255, 255, 0.5);
+  color: #000; /* keep text black on hover */
 }
 
 /* ===============================
@@ -410,16 +412,28 @@ button:active {
 
 .hero-bg {
   position: absolute;
-  width: 900px;              /* BIG phone */
+  top: 50%;
+  left: 50%;
+  width: 1000px;            /* BIG & premium */
   max-width: none;
+  transform: translate(-50%, -50%);
+  opacity: 0.9;
   z-index: 1;
   pointer-events: none;
+  animation: heroFloat 6s ease-in-out infinite;
+}
 
-  /* entry animation */
-  opacity: 0;
-  transform: translateY(200px) scale(0.95);
-  animation: heroEnter 1.2s ease-out forwards,
-             heroFloat 6s ease-in-out infinite 1.2s;
+/* FLOATING ANIMATION */
+@keyframes heroFloat {
+  0% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-18px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
 }
 
 /* Entry from bottom */
@@ -430,18 +444,18 @@ button:active {
   }
 }
 
-/* Floating loop */
-@keyframes heroFloat {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-18px); }
-  100% { transform: translateY(0); }
-}
-
 /* Mobile fix */
 @media (max-width: 768px) {
   .hero-bg {
     width: 420px;
-    margin-top: 40px;
+  }
+
+  .hero-text h1 {
+    font-size: 30px;
+  }
+
+  .hero-text p {
+    font-size: 16px;
   }
 }
 
