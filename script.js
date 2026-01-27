@@ -91,3 +91,26 @@ if (
 ) {
   window.location.href = "login.html";
 }
+
+auth.onAuthStateChanged(user => {
+  // ONLY redirect if NOT on login page
+  if (user && window.location.pathname.includes("login.html")) {
+    window.location.href = "dashboard.html";
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const loginBtn = document.getElementById("loginBtn");
+
+  if (loginBtn) {
+    loginBtn.addEventListener("click", () => {
+      auth.signInWithPopup(provider)
+        .then(() => {
+          window.location.href = "dashboard.html";
+        })
+        .catch(err => {
+          alert(err.message);
+        });
+    });
+  }
+});
