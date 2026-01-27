@@ -459,7 +459,6 @@ button:active {
   top: 50%;
   right: 6%;
   width: 1000px;
-  max-width: none;
   transform: translateY(-50%);
   opacity: 0.95;
   z-index: 2;
