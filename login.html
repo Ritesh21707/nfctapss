@@ -103,6 +103,24 @@ body {
   </div>
 
   <!-- Your existing Firebase logic -->
+   <script>
+  // 🔹 Firebase config (USE YOUR REAL CONFIG HERE)
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  // 🔹 Initialize Firebase ONLY once
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+
+  // 🔹 Auth & Provider
+  const auth = firebase.auth();
+  const provider = new firebase.auth.GoogleAuthProvider();
+</script>
  <script>
   document.addEventListener("DOMContentLoaded", () => {
     const loginBtn = document.getElementById("loginBtn");
