@@ -664,3 +664,50 @@ section {
   }
 }
 
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;   /* 🔥 centers vertically */
+  justify-content: space-between;
+  padding: 0 8%;
+  background: radial-gradient(
+    circle at top,
+    #111 0%,
+    #000 60%
+  );
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 520px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  color: #fff;
+}
+
+.hero p {
+  color: #bfbfbf;
+  margin: 18px 0 28px;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+/* PHONE */
+.hero-phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-phone img {
+  width: 320px;
+  max-width: 100%;
+  transform: translateY(0); /* ❌ remove any translateY before */
+}
+
