@@ -268,7 +268,7 @@ footer a {
   position: absolute;
   inset: -6px;
   border-radius: inherit;
-  background: #3b82f6; /* 🔵 CHANGE COLOR HERE */
+  background: #010e22; /* 🔵 CHANGE COLOR HERE */
   filter: blur(18px);
   opacity: 0;
   z-index: -1;
