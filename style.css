@@ -451,62 +451,76 @@ button:active {
 }
 
 /* ===============================
-   HERO PHONE IMAGE (PREMIUM)
+   HERO SECTION FIX (CENTERED)
    =============================== */
 
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* HERO PHONE IMAGE */
 .hero-bg {
   position: absolute;
   top: 50%;
-  right: 6%;
-  width: 1000px;
-  transform: translateY(-50%);
+  left: 50%;
+  width: 720px;              /* INCREASE SIZE HERE */
+  max-width: 90vw;
+  transform: translate(-50%, -50%);
   opacity: 0.95;
-  z-index: 2;
+  z-index: 1;
   pointer-events: none;
+
+  /* Premium floating animation */
   animation: heroFloat 6s ease-in-out infinite;
 }
 
-/* Floating animation */
+/* FLOAT ANIMATION (SAFE) */
 @keyframes heroFloat {
-  0% { transform: translateY(-50%) translateY(0); }
-  50% { transform: translateY(-50%) translateY(-18px); }
-  100% { transform: translateY(-50%) translateY(0); }
-}
-
-/* Mobile adjustment */
-@media (max-width: 768px) {
-  .hero-bg {
-    position: relative;
-    top: auto;
-    right: auto;
-    transform: none;
-    width: 340px;
-    margin: 40px auto 0;
-    display: block;
+  0% {
+    transform: translate(-50%, -50%) translateY(0);
   }
-
-  .hero {
-    padding-top: 120px;
+  50% {
+    transform: translate(-50%, -50%) translateY(-16px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
   }
 }
 
-.hero h1 {
-  font-size: 56px;
-  line-height: 1.15;
-  margin-bottom: 18px;
+/* TEXT ABOVE IMAGE */
+.hero-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+/* White text */
+.hero,
+.hero h1,
+.hero p,
+.hero a {
+  color: #ffffff !important;
 }
 
 .hero p {
-  font-size: 18px;
-  max-width: 600px;
-  margin: 0 auto 34px;
-  opacity: 0.88;
+  opacity: 0.9;
 }
 
-.hero-cta {
-  display: flex;
-  gap: 18px;
-  justify-content: center;
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .hero-bg {
+    width: 420px;
+  }
+
+  .hero-text h1 {
+    font-size: 30px;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+  }
 }
 
 .device-support {
