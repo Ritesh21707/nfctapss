@@ -379,3 +379,79 @@ button:active {
   border-color: rgba(255, 255, 255, 0.2);
 }
 
+.order-btn {
+  display: inline-block;
+  padding: 14px 36px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #000; /* BLACK TEXT */
+  font-weight: 600;
+  text-decoration: none;
+  margin: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 0 15px rgba(0, 255, 255, 0.4),
+    0 0 30px rgba(0, 255, 255, 0.25);
+  transition: all 0.3s ease;
+}
+
+.order-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 25px rgba(0, 255, 255, 0.8),
+    0 0 50px rgba(0, 255, 255, 0.6);
+}
+
+/* ===============================
+   HERO PHONE IMAGE – ANIMATION
+   =============================== */
+
+.hero-bg {
+  position: absolute;
+  width: 900px;              /* BIG phone */
+  max-width: none;
+  z-index: 1;
+  pointer-events: none;
+
+  /* entry animation */
+  opacity: 0;
+  transform: translateY(200px) scale(0.95);
+  animation: heroEnter 1.2s ease-out forwards,
+             heroFloat 6s ease-in-out infinite 1.2s;
+}
+
+/* Entry from bottom */
+@keyframes heroEnter {
+  to {
+    opacity: 0.9;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Floating loop */
+@keyframes heroFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-18px); }
+  100% { transform: translateY(0); }
+}
+
+/* Mobile fix */
+@media (max-width: 768px) {
+  .hero-bg {
+    width: 420px;
+    margin-top: 40px;
+  }
+}
+
+.hero,
+.hero h1,
+.hero p,
+.hero a {
+  color: #ffffff !important;
+}
+
+.hero p {
+  opacity: 0.9;
+}
