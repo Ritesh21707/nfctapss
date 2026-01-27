@@ -12,6 +12,13 @@
 html { scroll-behavior: smooth; }
 body { background: #fff; color: #000; }
 
+/* ===== LOGO FIX ===== */
+.logo img {
+  height: 32px;        /* adjust 28–36px if needed */
+  width: auto;
+  max-width: 140px;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -119,7 +126,7 @@ img {
 
 .hero-text {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   max-width: 680px;
   color: #ffffff; /* force white */
 }
