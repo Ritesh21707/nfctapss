@@ -465,7 +465,7 @@ button:active {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 720px;              /* INCREASE SIZE HERE */
+  width: 1000px;              /* INCREASE SIZE HERE */
   max-width: 90vw;
   transform: translate(-50%, -50%);
   opacity: 0.95;
