@@ -5,41 +5,119 @@
   <title>Login – NFC Tapss</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Main Styles -->
   <link rel="stylesheet" href="style.css">
 
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
+  <style>
+    /* PAGE BACKGROUND */
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #1a1a1a, #000);
+      font-family: inherit;
+    }
+
+    /* LOGIN WRAPPER */
+    .login-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    /* LOGIN CARD */
+    .login-card {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(18px);
+      border-radius: 22px;
+      padding: 40px 36px;
+      text-align: center;
+      max-width: 360px;
+      width: 100%;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    }
+
+    /* LOGO */
+    .login-card img {
+      height: 48px;
+      margin-bottom: 20px;
+    }
+
+    /* TEXT */
+    .login-card h2 {
+      color: #fff;
+      margin-bottom: 8px;
+      font-size: 24px;
+    }
+
+    .login-card p {
+      color: rgba(255,255,255,0.75);
+      font-size: 14px;
+      margin-bottom: 26px;
+    }
+
+    /* LOGIN BUTTON */
+    #loginBtn {
+      width: 100%;
+      padding: 14px 0;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      background: #fff;
+      color: #000;
+      border: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.35);
+    }
+
+    #loginBtn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 35px rgba(0, 255, 255, 0.6);
+    }
+  </style>
 </head>
 
 <body>
 
-<section class="section" style="
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-">
+  <div class="login-wrapper">
+    <div class="login-card">
+      <img src="images/logo.png" alt="NFC Tapss Logo">
 
-  <div style="text-align:center;">
-    <img src="images/logo.png" style="height:50px; margin-bottom:20px;">
+      <h2>Login to NFC Tapss</h2>
+      <p>Please sign in to continue</p>
 
-    <h2>Login to NFC Tapss</h2>
-    <p>Please sign in to continue</p>
-
-    <!-- ✅ LOGIN BUTTON (HERE) -->
-    <button
-      id="loginBtn"
-      class="order-btn"
-      style="margin-top:20px; display:none;"
-    >
-      Login with Google
-    </button>
+      <button id="loginBtn">
+        Login with Google
+      </button>
+    </div>
   </div>
 
-</section>
+  <!-- Your existing Firebase logic -->
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const loginBtn = document.getElementById("loginBtn");
 
-<script src="script.js"></script>
+    if (loginBtn) {
+      // Force show button (fix disappearing issue)
+      loginBtn.style.display = "block";
 
+      loginBtn.addEventListener("click", () => {
+        auth.signInWithPopup(provider)
+          .then(() => {
+            window.location.href = "dashboard.html";
+          })
+          .catch(err => {
+            console.error(err);
+            alert(err.message);
+          });
+      });
+    }
+  });
+</script>
 </body>
 </html>
