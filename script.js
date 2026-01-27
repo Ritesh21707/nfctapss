@@ -93,8 +93,9 @@ if (
 }
 
 auth.onAuthStateChanged(user => {
-  // ONLY redirect if NOT on login page
-  if (user && window.location.pathname.includes("login.html")) {
+  const onLoginPage = window.location.pathname.includes("login.html");
+
+  if (user && onLoginPage) {
     window.location.href = "dashboard.html";
   }
 });
