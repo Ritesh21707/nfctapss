@@ -430,7 +430,7 @@ button:active {
 }
 
 /* ===============================
-   HERO SECTION FIX (FINAL)
+   HERO SECTION LAYOUT (FIXED)
    =============================== */
 
 .hero {
@@ -442,66 +442,72 @@ button:active {
   overflow: hidden;
 }
 
-/* HERO PHONE IMAGE */
+/* Text stays above phone */
+.hero-text {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 720px;
+}
+
+/* ===============================
+   HERO PHONE IMAGE (PREMIUM)
+   =============================== */
+
 .hero-bg {
   position: absolute;
   top: 50%;
-  left: 50%;
-  width: 520px;              /* desktop size */
-  max-width: 90%;
-  transform: translate(-50%, -50%);
+  right: 6%;
+  width: 1000px;
+  max-width: none;
+  transform: translateY(-50%);
   opacity: 0.95;
-  z-index: 1;
+  z-index: 2;
   pointer-events: none;
   animation: heroFloat 6s ease-in-out infinite;
 }
 
-/* FLOATING ANIMATION */
+/* Floating animation */
 @keyframes heroFloat {
-  0% {
-    transform: translate(-50%, -50%) translateY(0);
+  0% { transform: translateY(-50%) translateY(0); }
+  50% { transform: translateY(-50%) translateY(-18px); }
+  100% { transform: translateY(-50%) translateY(0); }
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+  .hero-bg {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    width: 340px;
+    margin: 40px auto 0;
+    display: block;
   }
-  50% {
-    transform: translate(-50%, -50%) translateY(-18px);
-  }
-  100% {
-    transform: translate(-50%, -50%) translateY(0);
+
+  .hero {
+    padding-top: 120px;
   }
 }
 
-/* HERO TEXT ABOVE IMAGE */
-.hero-text {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 720px;
-  padding: 0 20px;
-}
-
-.hero,
-.hero h1,
-.hero p,
-.hero a {
-  color: #ffffff !important;
+.hero h1 {
+  font-size: 56px;
+  line-height: 1.15;
+  margin-bottom: 18px;
 }
 
 .hero p {
-  opacity: 0.9;
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto 34px;
+  opacity: 0.88;
 }
 
-/* MOBILE FIX */
-@media (max-width: 768px) {
-  .hero-bg {
-    width: 380px;
-  }
-
-  .hero-text h1 {
-    font-size: 30px;
-  }
-
-  .hero-text p {
-    font-size: 16px;
-  }
+.hero-cta {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
 }
 
 .device-support {
